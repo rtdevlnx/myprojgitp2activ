@@ -3,3 +3,63 @@
 git remote add origin https://github.com/rtdevlnx/myprojgitp2activ.git
 git push origin master
 git pull origin master
+
+git branch nouvelle-branche
+git checkout nouvelle-branche
+git checkout -b nouvelle-branch // cette cmd remplace les 2 ci-dessus
+
+
+
+Lorsque vous travaillez sur plusieurs branches, 
+il va souvent vous arriver de vouloir ajouter  
+dans une branche A les mises à jour 
+que vous avez faites dans une autre branche B. Pour cela, on se place dans la branche A :
+
+git checkout brancheA
+
+Puis on utilise la commande git merge : 
+
+git merge brancheB
+
+Fusionner des branches est une pratique courante 
+lorsque vous travaillez sur un projet : 
+vous devez toujours chercher à remettre les modifications faites
+sur vos différentes branches dans la branche principale master.  
+ 
+ 
+ 
+CONFLITS
+
+Si vous tentez de fusionner la branche universal dans la branche master :
+
+git checkout master
+git merge universal
+
+Git va reconnaître qu'il existe un conflit entre les deux branches car la 1re ligne du fichier Hello est différente dans chacune des branches et afficher le message suivant : 
+
+Auto-merging hello.md
+CONFLICT (content): Merge conflict in hello.md
+Automatic merge failed; fix conflicts and then commit the result. 
+ 
+ 
+Maintenant que vous avez résolu le conflit, il vous reste à le dire à Git ! Car pour l'instant, si vous faites un git status, git vous dira que vous avez des branches non fusionnées ("unmerged paths"). Pour cela, faites un commit sans message : 
+
+git commit
+
+
+Ici, nous avons résolu le conflit en ouvrant directement le fichier posant problème dans la console. Sachez qu'il existe aussi des outils proposant des interfaces graphiques pour comparer les différences de versions d'un fichier. Personnellement je préfère rester dans la console, mais c'est une question de goût ; n'hésitez pas à tester ces outils si vous êtes plus visuels ! À vous de tester parmi les nombreux outils existants : vimdiff, meld, opendiff, kdiff3, tkdiff, xxdiff, tortoisemerge, gvimdiff, diffuse, ecmerge, p4merge, araxis, emerge. Pour lancer l'un de ces outils externes de merge avec la commande git mergetool, par exemple : 
+
+git mergetool vimdiff 
+
+
+
+QUI A FAIT UN COMMIT PROBLEMATIQUE
+
+git blame nomdufichier.extension
+Cette commande liste toutes les modifications 
+qui ont été faites sur le fichier ligne par ligne. 
+À chaque modification est associé le début du sha du commit correspondant. 
+Par exemple : 
+
+^05b1233 (Marc Gauthier 2014-08-08 00:31:02 1) # Une liste 
+ 
