@@ -1,0 +1,18 @@
+
+
+Liste des cmd lnx utiles à GIT
+
+pwd
+ls -l
+mkdir nomdudossier
+cd  dossier
+touch nomdufichier
+vim nomdufichier
+git init
+git add
+git commit -m "contenu du message"
+git commit -a -m "contenu du message"
+git log
+git status
+git checkout SHA
+
