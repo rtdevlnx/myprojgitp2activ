@@ -62,4 +62,19 @@ qui ont été faites sur le fichier ligne par ligne.
 Par exemple : 
 
 ^05b1233 (Marc Gauthier 2014-08-08 00:31:02 1) # Une liste 
+
+
+Pour retrouver pourquoi cette modification a été faite, vous avez deux possibilités : 
+
+Faire un git log et rechercher le commit dont le sha commence par 05b1233. 
+
+Utiliser la commande git show qui vous renvoie directement les détails du commit recherché en saisissant le début de son sha : 
+
+git show 05b1233
+
+
+
+Si vous avez ce type de variables de configuration dans votre code,
+déplacez-les dans un fichier de configuration et ignorez ce fichier dans Git : 
+nous allons voir comment faire cela dans la vidéo ci-dessous en utilisant le fichier .gitignore.
  
